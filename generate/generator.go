@@ -121,6 +121,9 @@ func (g *generator) generate() ([]*plugin.Generated, error) {
 				//add parameters
 				g.writeLine("\"parameters\": [")
 				g.indent()
+				if len(f.Annotations) == 0 {
+					return nil, fmt.Errorf("no request in the func %s", f.Name)
+				}
 				name := f.Arguments[0].Type.Name
 				names := ast.Structs
 				re := findStructByName(names, name)
