@@ -211,14 +211,14 @@ func (g *generator) generate() ([]*plugin.Generated, error) {
 
 func (g *generator) writeLine(str string) {
 	for i := 0; i < g.indentNum; i++ {
-		g.buffer.WriteString("\t")
+		g.buffer.WriteString("  ")
 	}
 	g.buffer.WriteString(str + "\n")
 }
 
 func (g *generator) writeLinef(format string, args ...interface{}) {
 	for i := 0; i < g.indentNum; i++ {
-		g.buffer.WriteString("\t")
+		g.buffer.WriteString("  ")
 	}
 	g.buffer.WriteString(fmt.Sprintf(format, args...))
 }
